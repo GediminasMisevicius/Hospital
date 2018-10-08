@@ -9,6 +9,6 @@ public class HospitalApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(HospitalApplication.class, args);
 		
-		System.out.println("PASILEIDZIA beveik");
+		System.out.println("PASILEIDZIA beveik, bet nesipullina");
 	}
 }
