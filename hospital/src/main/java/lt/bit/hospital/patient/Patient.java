@@ -39,12 +39,58 @@ public class Patient implements Serializable {
 	@Size(min=5, max=200)
 	private String diagnosis;
 	
+<<<<<<< HEAD
 	@Column(name="recipe", nullable=false)
 	private Recipe recipe;
+=======
+	//TODO: DB integration for address
+	private PatientAddress address;
+>>>>>>> 0056f34efb21a5f6011d898f40048dbdc9b3a5b1
 	
-	
-
 	public Patient() {
 		
 	}
+
+	public UUID getId() {
+		return id;
+	}
+
+	public void setId(UUID id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getSurname() {
+		return surname;
+	}
+
+	public void setSurname(String surname) {
+		this.surname = surname;
+	}
+
+	public String getDiagnosis() {
+		return diagnosis;
+	}
+
+	public void setDiagnosis(String diagnosis) {
+		this.diagnosis = diagnosis;
+	}
+
+	public PatientAddress getAddress() {
+		return address;
+	}
+
+	public void setAddress(PatientAddress address) {
+		this.address = address;
+	}
+	
+	
+
 }
