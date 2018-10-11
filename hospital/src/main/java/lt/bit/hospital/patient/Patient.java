@@ -40,8 +40,6 @@ public class Patient implements Serializable {
 	private String diagnosis;
 	
 	@Column(name="recipe", nullable=false)
-	@NotBlank
-	@Size(min=5, max=200)
 	private Recipe recipe;
 	
 	
