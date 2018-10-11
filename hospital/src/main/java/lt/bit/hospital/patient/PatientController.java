@@ -1,5 +1,7 @@
 package lt.bit.hospital.patient;
 
+import java.util.UUID;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,8 +15,11 @@ import org.springframework.web.bind.annotation.PutMapping;
 @Controller
 public class PatientController {
 	
-	@Autowired
 	private PatientService patientService;
+	
+	public PatientController(PatientService patientService) {
+		this.patientService = patientService;
+	}
 
 	@GetMapping("/info/{id}")
 	public String getPatientInfo(@PathVariable String id, Model model) {
@@ -34,9 +39,9 @@ public class PatientController {
 	@PutMapping("/edit")
 	public String editPatientInfo(Model model, HttpServletRequest request) {
 		Patient eP = new Patient();
-				eP.setId(request.getParameter("id"));
+				eP.setId(UUID.fromString(request.getParameter("id")));
 				String[] info = request.getParameterValues("info");
-		patientService.editPatientInfo(eP.getId(), info);
+		patientService.editPatientInfo(eP.getId().toString(), info);
 		model.addAttribute(eP);
 		return "edit";
 	}

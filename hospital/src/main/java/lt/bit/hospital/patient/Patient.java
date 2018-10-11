@@ -39,14 +39,53 @@ public class Patient implements Serializable {
 	@Size(min=5, max=200)
 	private String diagnosis;
 	
-	@Column(name="recipe", nullable=false)
-	@NotBlank
-	@Size(min=5, max=200)
-	private Recipe recipe;
+	//TODO: DB integration for address
+	private PatientAddress address;
 	
-	
-
 	public Patient() {
 		
 	}
+
+	public UUID getId() {
+		return id;
+	}
+
+	public void setId(UUID id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getSurname() {
+		return surname;
+	}
+
+	public void setSurname(String surname) {
+		this.surname = surname;
+	}
+
+	public String getDiagnosis() {
+		return diagnosis;
+	}
+
+	public void setDiagnosis(String diagnosis) {
+		this.diagnosis = diagnosis;
+	}
+
+	public PatientAddress getAddress() {
+		return address;
+	}
+
+	public void setAddress(PatientAddress address) {
+		this.address = address;
+	}
+	
+	
+
 }
