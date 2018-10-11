@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<style>
+body {
+    background-color: lightblue;
+}
+</style>
+</head>
+
+<body>
+	<img class="logo" src="https://us.123rf.com/450wm/alexwhite/alexwhite1502/alexwhite150205849/36924712-emergency-blue-flat-icon-hospital-sign.jpg?ver=6" width=300px alt="logo_exmple">
+	<h1 style="color:white;">Puslapis naujinamas. Kantrybes. Cia galesite rasti savo tyrimu rezultatus...</h1>
+	<h5>Iveskite savo asmens koda (id):</h5>
+	<form style="float: left" action="/th/filter" method="post">
+		<input type="number" name="finame" />   <input
+			type="submit" name="fisubmit" value="RASTI" />
+	</form>
+
+
+	<table th:if="${patient.id}" border="1" style="float: right">
+		<th:block th:each="hospital : ${id}">
+			<tr>
+				<td th:text="${patient.name}">...</td>
+				<td th:text="${patient.surname}">...</td>
+				<td th:text="${patient.diagnosis}">...</td>
+				<td th:text="${patient.recipe}">...</td>
+				<td><a th:href="'uzdaryti' + ${patient.id}">
+						<button type="button">UZDARYTI</button>
+				</a> <a th:href="'atsispausdinti' + ${patient.recipe}">
+						<button type="button">ATSISPAUSDINTI RECEPTA</button>
+				</a></td>
+			</tr>
+		</th:block>
+	</table>
+</body>
+
+</html>
