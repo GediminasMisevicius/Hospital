@@ -66,24 +66,27 @@ public class Patient implements Serializable {
 		return name;
 	}
 
-	public void setName(String name) {
+	public Patient setName(String name) {
 		this.name = name;
+		return this;
 	}
 
 	public String getSurname() {
 		return surname;
 	}
 
-	public void setSurname(String surname) {
+	public Patient setSurname(String surname) {
 		this.surname = surname;
+		return this;
 	}
 
 	public String getDiagnosis() {
 		return diagnosis;
 	}
 
-	public void setDiagnosis(String diagnosis) {
+	public Patient setDiagnosis(String diagnosis) {
 		this.diagnosis = diagnosis;
+		return this;
 	}
 
 //	public PatientAddress getAddress() {
