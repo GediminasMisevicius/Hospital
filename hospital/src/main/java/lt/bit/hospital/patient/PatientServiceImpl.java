@@ -16,11 +16,11 @@ import org.springframework.validation.annotation.Validated;
 @Service
 @Validated
 @Transactional
-public class PatientService {
+public class PatientServiceImpl {
 	
 	private PatientJpaRepository repository;
 	
-	public PatientService(PatientJpaRepository repository) {
+	public PatientServiceImpl(PatientJpaRepository repository) {
 		this.repository = repository;
 	}
 	

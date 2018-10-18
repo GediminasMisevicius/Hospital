@@ -15,9 +15,9 @@ import org.springframework.web.bind.annotation.PutMapping;
 @Controller
 public class PatientController {
 	
-	private PatientService patientService;
+	private PatientServiceImpl patientService;
 	
-	public PatientController(PatientService patientService) {
+	public PatientController(PatientServiceImpl patientService) {
 		this.patientService = patientService;
 	}
 

@@ -1,7 +1,11 @@
 package lt.bit.hospital;
 
+import java.io.IOException;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+import lt.bit.hospital.recipe.RecipePdfWriter;
 
 @SpringBootApplication
 public class HospitalApplication {

@@ -6,15 +6,17 @@ import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
 import org.springframework.data.jpa.domain.Specification;
+import org.springframework.util.StringUtils;
 
 public class PatientSpecificationsBuilder {
-	
-	private PatientSpecificationsBuilder() {}
+
+	private PatientSpecificationsBuilder() {
+	}
 
 	public static Specification<Patient> buildSpecificationByFilter(PatientFilter patientFilter) {
 		Specification<Patient> spec = null;
 
-		if (!patientFilter.getName().isEmpty()) {
+		if (!StringUtils.isEmpty(patientFilter.getName())) {
 			spec = patientName(spec, patientFilter);
 		}
 
@@ -28,22 +30,23 @@ public class PatientSpecificationsBuilder {
 		return spec;
 	}
 
+	//TODO: sutvarkyti likusius builderius
+	
 	public static Specification<Patient> patientName(Specification<Patient> spec, PatientFilter patientFilter) {
 
-		spec = spec.and(new Specification<Patient>() {
-
-			@Override
-			public Predicate toPredicate(Root<Patient> root, CriteriaQuery<?> query, CriteriaBuilder criteriaBuilder) {
-				return criteriaBuilder.like(root.get("name"), "%" + patientFilter.getName() + "%");
-			}
-		});
+		Specification<Patient> specName = createSpecificationName(patientFilter);
+		if( spec == null ) {
+			spec = Specification.where(specName); 
+		} else {
+			spec = spec.and(specName);
+		}
 
 		return spec;
 	}
 
 	public static Specification<Patient> patientDiagnosis(Specification<Patient> spec, PatientFilter patientFilter) {
 
-		spec = spec.and(new Specification<Patient>() {
+		spec = spec == null ? Specification.where(spec) : spec.and(new Specification<Patient>() {
 
 			@Override
 			public Predicate toPredicate(Root<Patient> root, CriteriaQuery<?> query, CriteriaBuilder criteriaBuilder) {
@@ -56,7 +59,7 @@ public class PatientSpecificationsBuilder {
 
 	public static Specification<Patient> patientAddress(Specification<Patient> spec, PatientFilter patientFilter) {
 
-		spec = spec.and(new Specification<Patient>() {
+		spec = spec == null ? Specification.where(spec) : spec.and(new Specification<Patient>() {
 
 			@Override
 			public Predicate toPredicate(Root<Patient> root, CriteriaQuery<?> query, CriteriaBuilder criteriaBuilder) {
@@ -65,6 +68,17 @@ public class PatientSpecificationsBuilder {
 		});
 
 		return spec;
+	}
+	
+	private static Specification<Patient> createSpecificationName(PatientFilter patientFilter) {
+		
+		return new Specification<Patient>() {
+
+			@Override
+			public Predicate toPredicate(Root<Patient> root, CriteriaQuery<?> query, CriteriaBuilder criteriaBuilder) {
+				return criteriaBuilder.like(root.get("name"), "%" + patientFilter.getName() + "%");
+			}
+		};
 	}
 
 }

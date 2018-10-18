@@ -39,13 +39,9 @@ public class Patient implements Serializable {
 	@Size(min=5, max=200)
 	private String diagnosis;
 	
-<<<<<<< HEAD
-	@Column(name="recipe", nullable=false)
-	private Recipe recipe;
-=======
 	//TODO: DB integration for address
 	private PatientAddress address;
->>>>>>> 0056f34efb21a5f6011d898f40048dbdc9b3a5b1
+
 	
 	public Patient() {
 		
