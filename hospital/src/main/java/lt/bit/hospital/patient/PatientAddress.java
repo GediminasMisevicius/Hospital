@@ -12,20 +12,28 @@ public class PatientAddress implements Serializable {
 	public String getStreetName() {
 		return streetName;
 	}
-	public void setStreetName(String streetName) {
+	public PatientAddress setStreetName(String streetName) {
 		this.streetName = streetName;
+		return this;
 	}
 	public String getBuildingNumber() {
 		return buildingNumber;
 	}
-	public void setBuildingNumber(String buildingNumber) {
+	public PatientAddress setBuildingNumber(String buildingNumber) {
 		this.buildingNumber = buildingNumber;
+		return this;
 	}
 	public int getFlatNumber() {
 		return flatNumber;
 	}
-	public void setFlatNumber(int flatNumber) {
+	public PatientAddress setFlatNumber(int flatNumber) {
 		this.flatNumber = flatNumber;
+		return this;
+	}
+	@Override
+	public String toString() {
+		return "" + streetName + " g. " + buildingNumber + "-"
+				+ flatNumber;
 	}
 	
 	

@@ -36,19 +36,16 @@ public class Patient implements Serializable {
 	@Size(min=5, max=100)
 	private String surname;
 	
-	@Column(name="PatientAddress", nullable=false)
-	@NotBlank
-	@Size(min=5, max=100)
-	private String address;
-	
 	@Column(name="diagnosis", nullable=false)
 	@NotBlank
 	@Size(min=5, max=200)
 	private String diagnosis;
 	
+	//TODO: DB integration for address
+	@Column(name="patient_address", nullable=false)
+    @NotBlank
+	private PatientAddress address;
 
-	@Column(name="recipe", nullable=false)
-	private Recipe recipe;
 	
 	public Patient() {
 		
@@ -86,13 +83,13 @@ public class Patient implements Serializable {
 		this.diagnosis = diagnosis;
 	}
 
-//	public PatientAddress getAddress() {
-//		return address;
-//	}
-//
-//	public void setAddress(PatientAddress address) {
-//		this.address = address;
-//	}
+	public PatientAddress getAddress() {
+		return address;
+	}
+
+	public void setAddress(PatientAddress address) {
+		this.address = address;
+	}
 	
 	
 
