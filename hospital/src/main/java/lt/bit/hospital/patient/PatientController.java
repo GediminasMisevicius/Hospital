@@ -1,10 +1,7 @@
 package lt.bit.hospital.patient;
 
 import java.util.UUID;
-
 import javax.servlet.http.HttpServletRequest;
-
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -28,13 +25,13 @@ public class PatientController {
 		return "info";
 	}
 	
-	@PostMapping("/register")
-	public String registerPatient(HttpServletRequest request) {
-		Patient regP = new Patient();
-				regP.setName(request.getParameter("name"));
-		patientService.registerPatient(regP);
-		return "register";
-	}
+//	@PostMapping("/register")
+//	public String registerPatient(HttpServletRequest request) {
+//		Patient regP = new Patient();
+//				regP.setName(request.getParameter("name"));
+//		patientService.registerPatient(regP);
+//		return "register";
+//	}
 	
 	@PutMapping("/edit")
 	public String editPatientInfo(Model model, HttpServletRequest request) {
