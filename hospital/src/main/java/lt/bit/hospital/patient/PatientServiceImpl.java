@@ -16,11 +16,11 @@ import org.springframework.validation.annotation.Validated;
 @Service
 @Validated
 @Transactional
-public class PatientService {
+public class PatientServiceImpl {
 	
 	private PatientJpaRepository repository;
 	
-	public PatientService(PatientJpaRepository repository) {
+	public PatientServiceImpl(PatientJpaRepository repository) {
 		this.repository = repository;
 	}
 	
@@ -35,7 +35,7 @@ public class PatientService {
 	
 	public void editPatientInfo(@NotEmpty String id, @NotEmpty String... info) {
 		Patient editable = repository.findById(UUID.fromString(id)).orElseThrow(); //TODO: add exception
-		//editing
+		//TODO: actually edit
 		repository.save(editable);
 	}
 	
