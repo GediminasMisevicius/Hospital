@@ -14,6 +14,8 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import lt.bit.hospital.recipe.Recipe;
+
 @Entity
 @Table(name="Patients")
 public class Patient implements Serializable {
@@ -33,6 +35,11 @@ public class Patient implements Serializable {
 	@NotBlank
 	@Size(min=5, max=100)
 	private String surname;
+	
+	@Column(name="PatientAddress", nullable=false)
+	@NotBlank
+	@Size(min=5, max=100)
+	private String address;
 	
 	@Column(name="diagnosis", nullable=false)
 	@NotBlank
@@ -81,13 +88,13 @@ public class Patient implements Serializable {
 		this.diagnosis = diagnosis;
 	}
 
-	public PatientAddress getAddress() {
-		return address;
-	}
-
-	public void setAddress(PatientAddress address) {
-		this.address = address;
-	}
+//	public PatientAddress getAddress() {
+//		return address;
+//	}
+//
+//	public void setAddress(PatientAddress address) {
+//		this.address = address;
+//	}
 	
 	
 
