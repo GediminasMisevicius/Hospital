@@ -40,6 +40,8 @@ public class Patient implements Serializable {
 	private String diagnosis;
 	
 	//TODO: DB integration for address
+	@Column(name="patient_address", nullable=false)
+    @NotBlank
 	private PatientAddress address;
 
 	

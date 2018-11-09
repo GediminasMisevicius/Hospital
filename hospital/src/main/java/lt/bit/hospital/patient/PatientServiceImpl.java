@@ -35,7 +35,7 @@ public class PatientServiceImpl {
 	
 	public void editPatientInfo(@NotEmpty String id, @NotEmpty String... info) {
 		Patient editable = repository.findById(UUID.fromString(id)).orElseThrow(); //TODO: add exception
-		//editing
+		//TODO: actually edit
 		repository.save(editable);
 	}
 	

@@ -1,6 +1,7 @@
 package lt.bit.hospital.recipe;
 
 import static org.mockito.Mockito.spy;
+import static org.mockito.Mockito.verify;
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.util.UUID;
@@ -36,10 +37,9 @@ public class RecipePdfWriterTest {
 	}
 	
 	@Test
-	public void givenRecipeExists_whenWritingPdf_thenPdfIsCreated() throws IOException {
-		
-			writer.writePdf(recipe);
-			
+	public void givenRecipeExists_whenWritingPdf_thenMethodWasSuccessful() throws IOException {
+		//given, when and then
+			verify(writer).writePdf(recipe);
 		
 	}
 
