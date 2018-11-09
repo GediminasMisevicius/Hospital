@@ -83,13 +83,13 @@ public class Patient implements Serializable {
 		this.diagnosis = diagnosis;
 	}
 
-//	public PatientAddress getAddress() {
-//		return address;
-//	}
-//
-//	public void setAddress(PatientAddress address) {
-//		this.address = address;
-//	}
+	public PatientAddress getAddress() {
+		return address;
+	}
+
+	public void setAddress(PatientAddress address) {
+		this.address = address;
+	}
 	
 	
 
