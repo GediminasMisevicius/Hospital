@@ -36,11 +36,6 @@ public class Patient implements Serializable {
 	@Size(min=5, max=100)
 	private String surname;
 	
-	@Column(name="PatientAddress", nullable=false)
-	@NotBlank
-	@Size(min=5, max=100)
-	private String address;
-	
 	@Column(name="diagnosis", nullable=false)
 	@NotBlank
 	@Size(min=5, max=200)
